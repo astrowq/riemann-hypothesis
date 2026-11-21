@@ -1,0 +1,8 @@
+'Verification.riemannHypothesis_iff_zero_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8706/8707] Built Challenge (2.9s)
+warning: src/Challenge.lean:19:8: declaration uses `sorry`
+warning: src/Challenge.lean:21:8: declaration uses `sorry`
+warning: src/Challenge.lean:23:8: declaration uses `sorry`
+warning: src/Challenge.lean:25:8: declaration uses `sorry`
+warning: src/Challenge.lean:27:8: declaration uses `sorry`
+Build completed successfully (8707 jobs).

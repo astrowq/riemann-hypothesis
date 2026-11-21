@@ -1,0 +1,213 @@
+<section id="rh-explorer">
+  <h2>The Riemann hypothesis</h2>
+  <div class="nav nav-pills" role="tablist" aria-label="Explore the Riemann hypothesis">
+    <button type="button" class="nav-link active" id="rh-tab-zeros" role="tab" aria-controls="rh-zeros" aria-selected="true">Zeros</button>
+    <button type="button" class="nav-link" id="rh-tab-primes" role="tab" aria-controls="rh-primes" aria-selected="false">Primes</button>
+    <button type="button" class="nav-link" id="rh-tab-proof" role="tab" aria-controls="rh-proof" aria-selected="false">The proof</button>
+    <button type="button" class="nav-link" id="rh-tab-audit" role="tab" aria-controls="rh-audit" aria-selected="false">Our progress</button>
+  </div>
+  <section id="rh-zeros" role="tabpanel" aria-labelledby="rh-tab-zeros">
+    <div class="viz-controls">
+      <label class="form-label">Region of the complex plane
+        <select class="form-select" id="rh-region"><option value="strip">Around the critical strip</option><option value="real">Along the real axis</option></select>
+      </label>
+    </div>
+    <svg class="plane" id="rh-zero-plane" role="img" aria-label="The first four conjugate pairs of nontrivial zeta zeros on the line with real part one half"></svg>
+    <div id="rh-zero-caption" aria-live="polite">The dots mark the first four pairs. RH says every nontrivial zero lies on this same line.</div>
+  </section>
+  <section id="rh-primes" role="tabpanel" aria-labelledby="rh-tab-primes" hidden>
+    <h3>Which integers enter the sum at X = 24?</h3>
+    <output id="rh-prime-detail" class="tabular-nums" aria-live="polite"></output>
+    <div id="rh-prime-groups" class="number-groups"></div>
+    <div class="text-small" id="rh-prime-total"></div>
+    <details><summary>How the sum connects to zeros</summary><div>The release calls the weighted sum <code>Sz</code> and its error from the smooth main term <code>Gz</code>. A bound on one side of that error, valid for every sufficiently large X, gives a zero-free half-plane through <code>zetaLandau</code>.</div></details>
+  </section>
+  <section id="rh-proof" role="tabpanel" aria-labelledby="rh-tab-proof" hidden>
+    <ol class="steps">
+      <li><details><summary>Rule out zeros to the right of ½</summary><div><code>allChi</code> supplies nonvanishing for every Dirichlet character when Re(s) &gt; ½, with the pole excluded. This is the main mathematical input. The author’s note describes iterated theta lifts and divisibility in this part of the argument.</div></details></li>
+      <li><details><summary>Specialize to the zeta function</summary><div><code>rh_of_every</code> takes the character modulo 1. Its L-function equals ζ, so ζ cannot vanish to the right of the critical line away from its pole.</div></details></li>
+      <li><details open><summary>Reflect a hypothetical zero on the left</summary><div>For a nontrivial zero inside the strip, the functional equation would give another zero at 1 − s. That point lies in the right half, where the previous step rules it out. The Lean lemma <code>rh_of_right</code> also checks the exceptional factors.</div></details></li>
+    </ol>
+    <svg class="plane" id="rh-proof-plane" role="img" aria-label="A hypothetical zero s on the left and its reflected partner 1 minus s in the zero-free right half"></svg>
+    <label class="form-label">Move the hypothetical point
+      <input class="form-range" type="range" id="rh-sigma" min="0.05" max="0.45" step="0.01" value="0.25">
+    </label>
+    <output id="rh-reflection" class="tabular-nums" aria-live="polite">s = 0.25 + 6i　→　1 − s = 0.75 − 6i</output>
+    <div class="text-small">Our independent kernel check accepted steps 2 and 3 together, with step 1 supplied as the explicit premise.</div>
+  </section>
+  <section id="rh-audit" role="tabpanel" aria-labelledby="rh-tab-audit" hidden>
+    <h3>Independent verification</h3>
+    <div class="text-small text-muted" id="rh-asof">Snapshot · 22 November 2026, 00:14 CET</div>
+    <ol class="checks">
+      <li><span class="mark passed">✓</span><div><strong>Original source matched</strong><small>All 14 parts joined. Every file matched the original mirror’s Git tree.</small></div></li>
+      <li><span class="mark passed">✓</span><div><strong>Mathematical statement checked</strong><small>Lean checked our equivalent zero classification against Mathlib. The five-statement reference project also compiled.</small></div></li>
+      <li><span class="mark passed">✓</span><div><strong>Reference export reproduced</strong><small>Windows and Taurus produced the same checksum. The Taurus export also matched the published download byte for byte.</small></div></li>
+      <li><span class="mark active">◐</span><div><strong>Check the published proof export</strong><small>Taurus is downloading the 7.70 GB compressed proof. The independent checker verdict is pending.</small></div></li>
+      <li><span class="mark active">◐</span><div><strong>Rebuild the submitted proof and audit its axioms</strong><small>The original sources are compiling in isolation on Taurus. The axiom check follows the build.</small></div></li>
+      <li><span class="mark wait">○</span><div><strong>Replay the rebuilt proof</strong><small>Compare its checksum and run the independent checker and Lean’s kernel.</small></div></li>
+    </ol>
+    <div class="text-small">✓ Complete　 ◐ In progress　 ○ Pending</div>
+  </section>
+</section>
+<style>
+#rh-explorer { display:grid; gap:calc(var(--font-size-base) * .85); }
+#rh-explorer [role=tabpanel]:not([hidden]) { display:grid; gap:calc(var(--font-size-base) * .7); }
+#rh-explorer .plane { display:block; width:100%; overflow:visible; color:var(--foreground); }
+#rh-explorer .plane text { fill:currentColor; font:inherit; }
+#rh-explorer .plane .tick { fill:var(--muted-foreground); }
+#rh-explorer .steps { margin:0; padding-inline-start:1.8em; }
+#rh-explorer .steps li { padding:.25em 0; }
+#rh-explorer .steps li::marker { color:var(--muted-foreground); }
+#rh-explorer summary { font-weight:500; cursor:inherit; }
+#rh-explorer details > div { margin:.35em 0 .35em 1em; }
+#rh-explorer .checks { display:grid; gap:1em; list-style:none; margin:.4em 0; padding:0; }
+#rh-explorer .checks li { display:grid; grid-template-columns:1.5em 1fr; gap:.5em; }
+#rh-explorer .checks strong { font-weight:500; }
+#rh-explorer .checks small { display:block; color:var(--muted-foreground); font:inherit; }
+#rh-explorer .mark { text-align:center; }
+#rh-explorer .passed { color:var(--viz-series-1); }
+#rh-explorer .active.mark { color:var(--viz-series-2); }
+#rh-explorer .wait { color:var(--muted-foreground); }
+#rh-explorer .number-groups { display:grid; gap:.8em; }
+#rh-explorer .number-groups h3 { margin-bottom:.35em; }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('rh-explorer');
+  const region = root.querySelector('#rh-region');
+  const sigma = root.querySelector('#rh-sigma');
+  const primeLimit = 24;
+  let selectedNumber = 8;
+  function primeTerm(n) {
+    let remainder=n;
+    const factors=[];
+    for (let p=2;p*p<=remainder;p++) {
+      while (remainder%p===0) { factors.push(p); remainder/=p; }
+    }
+    if (remainder>1) factors.push(remainder);
+    const singlePrime=factors.length>0 && factors.every(p=>p===factors[0]);
+    const group=factors.length===1?'Primes':singlePrime?'Higher prime powers':'Other integers';
+    const contribution=singlePrime?Math.log(factors[0])*(primeLimit/n-1):0;
+    return {n,factors,singlePrime,group,contribution};
+  }
+  const terms=Array.from({length:primeLimit},(_,i)=>primeTerm(i+1));
+  const buttons=new Map();
+  function showPrime(n) {
+    selectedNumber=n;
+    const term=terms[n-1];
+    const parts=term.factors.length>1?' = '+term.factors.join(' × '):'';
+    const weight=term.singlePrime?'log('+term.factors[0]+')':'0';
+    root.querySelector('#rh-prime-detail').textContent=n+parts+'　·　Λ('+n+') = '+weight+'　·　weighted contribution '+term.contribution.toFixed(4);
+    for (const [number,button] of buttons) button.setAttribute('aria-pressed',String(number===n));
+  }
+  for (const group of ['Primes','Higher prime powers','Other integers']) {
+    const section=document.createElement('div'), heading=document.createElement('h3'), row=document.createElement('div');
+    heading.textContent=group;
+    row.className='viz-row';
+    row.setAttribute('role','group');
+    row.setAttribute('aria-label',group);
+    for (const term of terms.filter(t=>t.group===group)) {
+      const button=document.createElement('button');
+      button.type='button'; button.className='btn';
+      button.textContent=String(term.n);
+      button.setAttribute('aria-label','Inspect '+term.n);
+      button.addEventListener('click',()=>{showPrime(term.n);save()});
+      row.append(button); buttons.set(term.n,button);
+    }
+    section.append(heading,row); root.querySelector('#rh-prime-groups').append(section);
+  }
+  const sum=terms.reduce((acc,t)=>acc+t.contribution,0);
+  const smooth=primeLimit*(Math.log(primeLimit)-1-.5772156649015329);
+  root.querySelector('#rh-prime-total').textContent='Each term is Λ(n) × (24/n − 1). Sum '+sum.toFixed(4)+'　·　Smooth main term '+smooth.toFixed(4)+'　·　Difference '+(sum-smooth).toFixed(4);
+  showPrime(selectedNumber);
+  const heights = [14.134725141735, 21.022039638772, 25.010857580146, 30.424876125860];
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const series = 'var(--viz-series-1)', other = 'var(--viz-series-2)', grid = 'var(--border)';
+  function draw(svg, mode) {
+    const width = Math.round(svg.getBoundingClientRect().width);
+    if (width < 10) return;
+    const proof = mode === 'reflection', real = mode === 'real';
+    const height = real ? 195 : proof ? 222 : 306;
+    const left = 44, right = width - 20, top = 41, bottom = height - 42;
+    const xmin = real ? -8.8 : -.15, xmax = real ? 2.1 : 1.15;
+    const ymax = real ? 1 : proof ? 10 : 33;
+    const X = x => left + (x - xmin) / (xmax - xmin) * (right - left);
+    const Y = y => top + (1 - y / ymax) * (bottom - top) / 2;
+    svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+    svg.setAttribute('height', height);
+    svg.replaceChildren();
+    function mark(tag, attrs, label) {
+      const n = document.createElementNS(svgNS, tag);
+      for (const [key, value] of Object.entries(attrs)) n.setAttribute(key, value);
+      if (label !== undefined) n.textContent = label;
+      svg.append(n);
+      return n;
+    }
+    const line = (x1,y1,x2,y2,stroke,extra={}) => mark('line',{x1,y1,x2,y2,stroke,...extra});
+    const label = (x,y,str,anchor='middle',cls='') => mark('text',{x,y,'text-anchor':anchor,class:cls},str);
+    const tip = (tag,attrs,message) => mark(tag,{...attrs,'data-tooltip':message,'aria-label':message});
+    mark('title',{}, real ? 'Trivial zeros and the pole' : proof ? 'The functional-equation reflection' : 'Four conjugate pairs of zeta zeros');
+    if (!real) {
+      const bandStart = proof ? 0.5 : 0;
+      mark('rect',{x:X(bandStart),y:top,width:X(1)-X(bandStart),height:bottom-top,fill:series,opacity:.09,'pointer-events':'none'});
+      line(X(0),top,X(0),bottom,grid);
+      line(X(1),top,X(1),bottom,grid);
+      line(X(.5),top,X(.5),bottom,series,{'stroke-width':1.5});
+      label(X(.5),top-12,'Critical line');
+    }
+    const yticks = real ? [-1,0,1] : proof ? [-10,0,10] : [-30,-20,-10,0,10,20,30];
+    yticks.forEach(y => {
+      line(left,Y(y),right,Y(y),y===0?'var(--muted-foreground)':grid,{'stroke-width':y===0?1:.65});
+      label(left-8,Y(y)+4,String(y),'end','tick text-small');
+    });
+    const xticks = real ? [-8,-6,-4,-2,0,1,2] : [0,.5,1];
+    xticks.forEach(x=>label(X(x),bottom+17,x===.5?'½':String(x),'middle','tick text-small'));
+    label(left,15,'Im(s)','start','tick text-small');
+    label(right,height-2,'Real part  Re(s)','end','tick text-small');
+    if (proof) {
+      const a=Number(sigma.value), px=X(a), py=Y(6), qx=X(1-a), qy=Y(-6);
+      line(px,py,qx,qy,'var(--muted-foreground)',{'stroke-dasharray':'4 4'});
+      for (const [x,y,text,anchor,dx] of [[px,py,'s','end',-9],[qx,qy,'1 − s','start',9]]) {
+        const points=[[x,y-5],[x+5,y],[x,y+5],[x-5,y]].map(p=>p.join(',')).join(' ');
+        tip('polygon',{points,fill:'var(--background)',stroke:other,'stroke-width':2},text+' · hypothetical zero');
+        label(x+dx,y-8,text,anchor);
+      }
+      label((X(.5)+X(1))/2,top+16,'Zero-free','middle','text-small');
+      return;
+    }
+    const zeros = real ? [-8,-6,-4,-2].map(x=>[x,0]) : heights.flatMap(t=>[[.5,t],[.5,-t]]);
+    zeros.forEach(([x,y])=>tip('circle',{cx:X(x),cy:Y(y),r:4.5,fill:series},real?'Trivial zero at '+x:'Zero at ½ '+(y<0?'−':'+')+' '+Math.abs(y).toFixed(6)+'i'));
+    const xp=X(1),yp=Y(0);
+    tip('circle',{cx:xp,cy:yp,r:5,stroke:other,'stroke-width':2,fill:'var(--background)'},'Pole at 1');
+    label(xp-8,yp-9,'Pole','end','text-small');
+    if (!real) label(X(.5)+9,Y(heights[0])+4,'½ + 14.1347i','start','text-small');
+  }
+  function refresh() {
+    draw(root.querySelector('#rh-zero-plane'),region.value);
+    draw(root.querySelector('#rh-proof-plane'),'reflection');
+    const a=Number(sigma.value);
+    root.querySelector('#rh-reflection').textContent='s = '+a.toFixed(2)+' + 6i　→　1 − s = '+(1-a).toFixed(2)+' − 6i';
+    root.querySelector('#rh-zero-caption').textContent=region.value==='real'?'The filled dots are trivial zeros at negative even integers. The open circle marks the pole at 1.':'The dots mark the first four conjugate pairs. RH says every nontrivial zero lies on this same line.';
+    root.querySelector('#rh-zero-plane').setAttribute('aria-label',region.value==='real'?'Negative even trivial zeros and the pole at one':'First four conjugate pairs of nontrivial zeros in the critical strip');
+  }
+  function restore(state) {
+    const saved=state?.modelContent;
+    if (!saved) return;
+    if (['strip','real'].includes(saved.region)) region.value=saved.region;
+    if (Number.isFinite(saved.realPart) && saved.realPart>=.05 && saved.realPart<=.45) sigma.value=String(saved.realPart);
+    if (Number.isInteger(saved.number) && saved.number>=1 && saved.number<=primeLimit) showPrime(saved.number);
+    refresh();
+  }
+  function save() {
+    window.openai?.setWidgetState?.({modelContent:{region:region.value,realPart:Number(sigma.value),number:selectedNumber}})?.catch(()=>{});
+  }
+  region.addEventListener('change',()=>{refresh();save()});
+  sigma.addEventListener('input',refresh);
+  sigma.addEventListener('change',save);
+  new ResizeObserver(refresh).observe(root);
+  root.querySelector('[role=tablist]').addEventListener('click',()=>requestAnimationFrame(refresh));
+  window.addEventListener('openai:set_globals',e=>restore(e.detail?.globals?.widgetState));
+  restore(window.openai?.widgetState);
+  refresh();
+})();
+</script>
