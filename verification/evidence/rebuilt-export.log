@@ -1,0 +1,19 @@
+# Closed-file comparison and closing audit excerpts. Host metadata omitted and paths shortened.
+Start 2026-11-24T11:41:51+01:00
+results/published.ndjson bytes 61570595788 SHA-256 5ea74b912147c5c93cc2b6d70cc727cf908df2f62ac6a20480a3fa02f6be244e
+results/rebuilt.ndjson bytes 61570595788 SHA-256 5ea74b912147c5c93cc2b6d70cc727cf908df2f62ac6a20480a3fa02f6be244e
+Finish 2026-11-24T11:43:34+01:00
+All bytes compared equal. Both input identities, sizes and timestamps remained stable during the comparison.
+
+Closing audit, 25 November 2026. A separate read rehashed the original source archive, compiled Main, independent Mathlib challenge source, both closed exports, and the native axiom and checker logs.
+2026-11-25T06:28:50+01:00
+import Mathlib
+9631b4f020199e580ba86178cb56c6e9b09f690c2369a80dc4334aa93f49c7fc  downloads/lean.tar.gz
+9146dfb4148e24d2252e04c50742f3e49dd126dfcc5006d10bf5f873ddf796ad  lean/.lake/build/lib/lean/Main.olean
+a3cebbf30be6b9268a0ed413c9bbc256dfa9f4bfa04f1a75f144d135da5e21a5  reference/src/Challenge.lean
+67bc49f50a625348c0f3b8bf24a30a00aa0ed1996e8ea79ce93c9d668f46a7ad  results/axioms.log
+1335f3a54351e5ce2efd247f2c44ce9c473373d86c7df5ac5b8604d5b8539b7f  results/rebuilt-compare.log
+43a56f0a6b7d9a4c13e5045edb3391a143e1bf639e8b103e0aca978354880448  results/comparator.log
+bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9  results/challenge.ndjson
+5ea74b912147c5c93cc2b6d70cc727cf908df2f62ac6a20480a3fa02f6be244e  results/rebuilt.ndjson
+2026-11-25T06:30:58+01:00

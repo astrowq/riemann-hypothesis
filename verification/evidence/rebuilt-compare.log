@@ -1,0 +1,66 @@
+con-leche: reading results/challenge.ndjson
+con-leche: reading results/rebuilt.ndjson
+con-leche: checking: 1468418 declarations on 32 workers t=78.3s
+con-leche: check 73421 (5%) t=80.2s busy=31/32
+con-leche: check 146842 (10%) t=85.3s busy=31/32
+con-leche: check 220263 (15%) t=95.2s busy=31/32
+con-leche: check 293684 (20%) t=111.2s busy=31/32, oldest theorem Formalism.IrreducibleCountingLemmas.GaloisIrreducibility.PrimeCountingLemmas.factorial_ladder_one_forty_one._proof_1_1 (#226690) 15.157s
+con-leche: check 367105 (25%) t=128.3s busy=31/32
+con-leche: check 440526 (30%) t=142.5s busy=31/32
+con-leche: check 513947 (35%) t=169.6s busy=31/32
+con-leche: check 587368 (40%) t=190.4s busy=31/32
+con-leche: check 660789 (45%) t=214.1s busy=31/32, oldest theorem PI.PC.loop_run._proof_1_1 (#571290) 27.821s
+con-leche: check 734209 (50%) t=227.8s busy=31/32
+con-leche: check 807630 (55%) t=247.5s busy=30/32
+con-leche: check 881051 (60%) t=277.2s busy=31/32, oldest theorem GlobalTheory.HeightCounting.SideCopy.LamCopy.lam_copy (#829554) 22.700s
+con-leche: check 954472 (65%) t=295.1s busy=31/32, oldest theorem GlobalTheory.HeightCounting.SideCopy.LamCopy.lam_copy (#829554) 40.675s
+con-leche: check 1027893 (70%) t=310.6s busy=31/32
+con-leche: check 1101314 (75%) t=326.4s busy=31/32
+con-leche: check 1174735 (80%) t=344.3s busy=31/32
+con-leche: check 1248156 (85%) t=372.2s busy=31/32
+con-leche: check 1321577 (90%) t=387.9s busy=31/32
+con-leche: check 1394998 (95%) t=403.8s busy=31/32
+con-leche: check 1468418 (100%) t=423.9s busy=0/32
+con-leche: check done: 1468418 declarations t=424.3s (check 345.9s)
+con-leche: done: parse 78.3s, check 345.9s, 32 workers t=424.3s
+con-leche: stats: phases: parse 78.3s (index 2.2s), check 345.9s
+con-leche: stats: check pool: 345.891s wall, 32 workers, 1468418 records, busy 11048.799s (99.8%); tail 0.421s after the last start, 32 busy then, 1.134s worker-time in it (8.4%)
+con-leche: stats: slowest checks: 53.887s theorem GlobalTheory.HeightCounting.SideCopy.LamCopy.lam_copy (#829554); 46.484s theorem GlobalTheory.HeightCounting.SideCopy.sigSpan_copy (#829660); 39.639s theorem PI.PC.loop_run._proof_1_1 (#571290); 24.136s theorem Formalism.IrreducibleCountingLemmas.GaloisIrreducibility.PrimeCountingLemmas.factorial_ladder_one_forty_one._proof_1_1 (#226690); 19.335s theorem GlobalTheory.PrimeRecip.table_ok._proof_1_1 (#570391)
+con-leche: stats: peak RSS 44.67 GiB
+con-leche: checking: 51692 declarations on 32 workers t=427.2s
+con-leche: check 2585 (5%) t=427.2s busy=31/32
+con-leche: check 5170 (10%) t=427.2s busy=31/32
+con-leche: check 7754 (15%) t=427.3s busy=31/32
+con-leche: check 10339 (20%) t=427.3s busy=31/32
+con-leche: check 12923 (25%) t=427.3s busy=29/32
+con-leche: check 15508 (30%) t=427.3s busy=31/32
+con-leche: check 18093 (35%) t=427.4s busy=31/32
+con-leche: check 20677 (40%) t=427.4s busy=31/32
+con-leche: check 23262 (45%) t=427.4s busy=31/32
+con-leche: check 25846 (50%) t=427.5s busy=31/32
+con-leche: check 28431 (55%) t=427.5s busy=30/32
+con-leche: check 31016 (60%) t=427.6s busy=31/32
+con-leche: check 33600 (65%) t=427.6s busy=30/32
+con-leche: check 36185 (70%) t=427.7s busy=31/32
+con-leche: check 38769 (75%) t=427.8s busy=31/32
+con-leche: check 41354 (80%) t=427.8s busy=31/32
+con-leche: check 43939 (85%) t=427.9s busy=31/32
+con-leche: check 46523 (90%) t=428.0s busy=31/32
+con-leche: check 49108 (95%) t=428.0s busy=31/32
+con-leche: check 51692 (100%) t=428.2s busy=0/32
+con-leche: check done: 51692 declarations t=428.2s (check 1.0s)
+con-leche: done: parse 427.2s, check 1.0s, 32 workers t=428.2s
+con-leche: stats: phases: parse 427.2s (index 0.7s), check 1.0s
+con-leche: stats: check pool: 1.016s wall, 32 workers, 51692 records, busy 30.532s (93.8%); tail 0.062s after the last start, 32 busy then, 0.280s worker-time in it (14.0%)
+con-leche: stats: slowest checks: 0.058s axiom riemannHypothesis (#51215); 0.058s axiom riemannZeta_eq_zero_re (#51218); 0.049s axiom LFunction_eq_zero_re (#51583); 0.047s axiom LFunction_eq_zero_re_of_isPrimitive (#51687); 0.046s theorem Lean.Grind.Ring.OfSemiring.mul_helper (#22850)
+con-leche: stats: peak RSS 44.67 GiB
+con-leche: accepted 51692 declarations, 5 axioms justified by the solution results/rebuilt.ndjson (1468418 declarations accepted) (--verified)
+con-leche: theorem riemannHypothesis justified by the solution
+con-leche: theorem riemannZeta_eq_zero_re justified by the solution
+con-leche: theorem LFunction_ne_zero_of_half_lt_re justified by the solution
+con-leche: theorem LFunction_eq_zero_re justified by the solution
+con-leche: theorem LFunction_eq_zero_re_of_isPrimitive justified by the solution
+real 429.47
+user 11792.54
+sys 309.14
+Exit status: 0

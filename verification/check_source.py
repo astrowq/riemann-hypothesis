@@ -1,7 +1,8 @@
 """Compare Alpöge's joined release with the published archive and original Git tree."""
 
+import argparse
 import hashlib
-import sys
+import stat
 import tarfile
 from pathlib import Path, PurePosixPath
 
@@ -29,7 +30,31 @@ def tree_hash(directory):
     return git_hash(b"tree", b"".join(record for _, record in sorted(entries)))
 
 
-def main(archive):
+def compare_checkout(directory, expected, *, root=False):
+    entries = {entry.name: entry for entry in directory.iterdir()}
+    if root:
+        # Lake writes outside src. The audit also creates this top-level Lean input after Main builds.
+        entries.pop(".lake", None)
+        entries.pop("AuditRH.lean", None)
+    if entries.keys() != expected.keys():
+        difference = sorted(entries.keys() ^ expected.keys())
+        raise SystemExit(f"Path set differs in {directory}: {difference}")
+    for name, value in expected.items():
+        path = entries[name]
+        mode = path.lstat().st_mode
+        if isinstance(value, dict):
+            if not stat.S_ISDIR(mode):
+                raise SystemExit(f"Expected a source directory: {path}")
+            compare_checkout(path, value)
+        else:
+            if not stat.S_ISREG(mode):
+                raise SystemExit(f"Expected a regular source file: {path}")
+            git_mode = b"100755" if mode & 0o111 else b"100644"
+            if (git_mode, git_hash(b"blob", path.read_bytes())) != value:
+                raise SystemExit(f"Source content or executable bit differs: {path}")
+
+
+def main(archive, checkout=None):
     with archive.open("rb") as stream:
         digest = hashlib.file_digest(stream, "sha256").hexdigest()
     print(f"Joined archive: {archive.stat().st_size:,} bytes, SHA-256 {digest}", flush=True)
@@ -60,7 +85,14 @@ def main(archive):
     print(f"Git tree: {actual_tree} ({files:,} files, {lean_files:,} Lean files)")
     if actual_tree != MIRROR_TREE:
         raise SystemExit("Archive contents differ from the original mirror tree")
+    if checkout is not None:
+        compare_checkout(checkout, root, root=True)
+        print(f"Build checkout {checkout}: all {files:,} released paths, Git blob hashes and modes matched.")
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("archive", type=Path)
+    parser.add_argument("--checkout", type=Path, help="also compare the Linux build directory with the release")
+    args = parser.parse_args()
+    main(args.archive, args.checkout)

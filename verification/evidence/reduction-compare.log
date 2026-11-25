@@ -1,3 +1,4 @@
+# Checker output with the solution path shortened.
 con-leche: stats: phases: parse 0.6s (index 0.0s), check 2.5s
 con-leche: stats: check pool: 2.545s wall, 8 workers, 53448 records, busy 20.209s (99.2%); tail 0.018s after the last start, 8 busy then, 0.038s worker-time in it (25.7%)
 con-leche: stats: slowest checks: 0.027s theorem Lean.Grind.Ring.OfSemiring.mul_helper (#24156); 0.021s theorem hasFDerivAt_of_tendstoUniformlyOnFilter (#35433); 0.021s theorem FormalMultilinearSeries.changeOrigin_eval (#40560); 0.020s theorem HasFPowerSeriesWithinOnBall.hasSum_derivSeries_of_hasFDerivWithinAt (#40567); 0.019s theorem _private.Mathlib.Analysis.Complex.Trigonometric.0.Complex.sin_bound._proof_1_4 (#15701)
@@ -6,5 +7,5 @@ con-leche: stats: phases: parse 3.9s (index 0.0s), check 2.4s
 con-leche: stats: check pool: 2.405s wall, 8 workers, 51581 records, busy 18.846s (97.9%); tail 0.053s after the last start, 8 busy then, 0.081s worker-time in it (19.0%)
 con-leche: stats: slowest checks: 0.049s axiom Verification.rh_from_dirichlet_nonvanishing (#51576); 0.026s theorem Lean.Grind.Ring.OfSemiring.mul_helper (#24156); 0.021s theorem hasFDerivAt_of_tendstoUniformlyOnFilter (#35433); 0.020s theorem FormalMultilinearSeries.changeOrigin_eval (#40560); 0.020s theorem HasFPowerSeriesWithinOnBall.hasSum_derivSeries_of_hasFDerivWithinAt (#40567)
 con-leche: stats: peak RSS 0.84 GiB
-con-leche: accepted 51581 declarations, 1 axioms justified by the solution /home/baryon/riemann-verification-vZ5VgHlI/results/reduction-7pXsW5H2/solution/export.ndjson (53448 declarations accepted) (--verified)
+con-leche: accepted 51581 declarations, 1 axioms justified by the solution results/solution/export.ndjson (53448 declarations accepted) (--verified)
 con-leche: theorem Verification.rh_from_dirichlet_nonvanishing justified by the solution

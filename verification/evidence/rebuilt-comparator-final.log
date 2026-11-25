@@ -1,0 +1,43 @@
+# Pre- and post-run checks from the original record. Local paths shortened and host metadata omitted.
+Run timestamps in order: driver start, Comparator start, Comparator exit, post-run checks complete.
+
+2026-11-24T11:50:50+01:00
+results/challenge.ndjson: OK
+results/rebuilt.ndjson: OK
+tools/lean-4.36.0-linux/bin/lake: OK
+tools/lean-4.36.0-linux/bin/leanchecker-paranoid: OK
+tools/lean-4.36.0-linux/bin/nanoda_bin: OK
+tools/lean-4.36.0-linux/bin/leanchecker: OK
+comparator.json: OK
+/usr/bin/bwrap: OK
+tuned-bwrap: OK
+run.sh: OK
+2026-11-24T11:53:05+01:00
+2026-11-25T06:23:06+01:00
+results/challenge.ndjson: OK
+results/rebuilt.ndjson: OK
+tools/lean-4.36.0-linux/bin/lake: OK
+tools/lean-4.36.0-linux/bin/leanchecker-paranoid: OK
+tools/lean-4.36.0-linux/bin/nanoda_bin: OK
+tools/lean-4.36.0-linux/bin/leanchecker: OK
+comparator.json: OK
+/usr/bin/bwrap: OK
+tuned-bwrap: OK
+run.sh: OK
+2026-11-25T06:25:23+01:00
+
+Pinned SHA-256 values of the two inputs checked before and after replay
+bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9  results/challenge.ndjson
+5ea74b912147c5c93cc2b6d70cc727cf908df2f62ac6a20480a3fa02f6be244e  results/rebuilt.ndjson
+
+42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2  tools/lean-4.36.0-linux/bin/lake
+cd9a6ddb5fbf8f649c789dc905236e1ddee9fb32a323c141a4e63478f72e47b6  tools/lean-4.36.0-linux/bin/leanchecker-paranoid
+8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8  tools/lean-4.36.0-linux/bin/nanoda_bin
+2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798  tools/lean-4.36.0-linux/bin/leanchecker
+8ea890e6ccda9cf3983ada343af18a41d12542036875a3936e7925ed5b1582ff  comparator.json
+85580dd52ed366ece8844e90fa75ac7c4de8802963071344e123221fb9f6f11e  /usr/bin/bwrap
+57791b0d9c7ecc93042dcd9dc333c54bf17025555222d5a0a582823e0cf48b28  tuned-bwrap
+4e5a5f66b4ae60b9b707a71d63a1d996ec7d0ed663d1be453e5179dc811558e3  run.sh
+
+Target and axiom configuration
+{"challenge_module": "Challenge", "external_kernels": {"Lean paranoid": ["leanchecker-paranoid", "--silent", "--from-export"], "nanoda": ["nanoda_bin"]}, "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"], "solution_module": "Main", "theorem_names": ["riemannHypothesis", "riemannZeta_eq_zero_re", "LFunction_ne_zero_of_half_lt_re", "LFunction_eq_zero_re", "LFunction_eq_zero_re_of_isPrimitive"]}

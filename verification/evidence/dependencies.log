@@ -1,0 +1,13 @@
+2026-11-23T06:01:24+01:00
+mathlib 0df444a360eaa60ab8c11dca51a86af692955474 41570 import files, manifest SHA-256 3cd166b45f3362372c4ab6e734abed84304a14f43f44f294f5869a6fe70afb82
+plausible b7eb3304aeae834b12dda98993a37f6a41f6f0bb 65 import files, manifest SHA-256 103fb982b58e1342a8b0f82e3a3bc2f2fbf4948afd7f716104dfc1f56ccf141e
+LeanSearchClient 5f4d51b81cbd3f6b32b156bfad9056621a040404 20 import files, manifest SHA-256 26aca3aa2516f1cc0ee3cc797f98c25ca7419ffdc0629a64b6b8252088c44ba5
+importGraph 16f02aa7642864af59f1ff0e384a015994db9118 50 import files, manifest SHA-256 538e1d65acc2a6e0bc14a12c3e74eefe80c9d8d02296f51f208f9bc9c92bc06c
+proofwidgets 4be2e3d5087eeb272cf5a8853b8f9dd025ef5957 65 import files, manifest SHA-256 1ce38aab36efd94745ef41d670071333f74b5816aa27a7d553d36a70c3cd25bf
+aesop 3448c0bcc5ce01b2d1546e483ec3620e32df3d0e 660 import files, manifest SHA-256 ed70a827bf223055102d75ce63c6731f7089e607bbbff4b4acfd03cdb208e213
+Qq 92c15be17b7caf78c2ad767ec40f89052d908d81 70 import files, manifest SHA-256 53ba4c2f7016ad71c1dd9c5c44a1053125d70e3dae3bf022b0cba6f1e66d56de
+batteries 4488d40d070b9700d4d5a6aa342f0d40c31b2a2d 960 import files, manifest SHA-256 ca008473a2bd7aa5c70d15683ffcfb935ad4235d8d5712544df4dea6d4641c0c
+Cli 6130a47896ce867c6a4a55373441e59e565bad0f 0 import files, manifest SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Matched file counts by suffix: {'.ir': 8690, '.ir.sig': 8690, '.olean': 8700, '.olean.private': 8690, '.olean.server': 8690}
+Matched 43460 compiled dependency import files across 9 pinned checkouts.
+2026-11-23T06:01:39+01:00

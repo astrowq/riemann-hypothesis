@@ -1,0 +1,11 @@
+# Selected output for the independent analytic-continuation challenge. Local paths shortened.
+1cd6052d24ea1f2862f6334054faed65a672e1e6e03d7312b5f9f620a65acd4e  results/ContinuationChallenge.lean
+7f3a8b109de4fcd797c4e8e4ac49d81b9d3cb871e7154c782be4dbbfb6a001df  results/ZetaContinuation.lean
+'Verification.continuation_zeros' depends on axioms: [propext, riemannHypothesis, Classical.choice, Quot.sound]
+30b5da261e935597386c840235111e7047732264c2cc2e6ec70e1a43b848e491  results/challenge.ndjson
+con-leche: invalid: axiom riemannHypothesis is not justified by the solution: the solution has no constant riemannHypothesis [at axiom riemannHypothesis, fold position 53451] (--verified) t=21.4s
+Control without the RH proof exit 1
+con-leche: axiom riemannHypothesis justified by the solution
+con-leche: accepted 53457 declarations, 1 axioms justified by the solution results/published.ndjson (1468418 declarations accepted) (--verified)
+Full comparison exit 0
+5ea74b912147c5c93cc2b6d70cc727cf908df2f62ac6a20480a3fa02f6be244e  results/published.ndjson

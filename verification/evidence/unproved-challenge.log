@@ -1,0 +1,10 @@
+# Excerpts from the unproved-challenge control. Local paths shortened.
+19:theorem riemannHypothesis : RiemannHypothesis := by sorry
+21:theorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := by sorry
+23:theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := by sorry
+25:theorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry
+27:theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry
+con-leche: the solution results/unproved.ndjson: not implemented yet: use of the sorryAx axiom in value of riemannHypothesis [at theorem riemannHypothesis, fold position 51215] (--verified) t=13.5s
+con-leche exit 2
+error: Illegal axiom detected: 'sorryAx'
+Comparator exit 1

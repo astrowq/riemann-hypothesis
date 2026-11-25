@@ -1,0 +1,7 @@
+# Excerpts from the compiled-module comparison.
+Pinned Lean 4.33.1: expr.equal compares structure including binder names and annotations. expr.eqv tests alpha equivalence and ignores binder annotations.
+Both objects were read in one process using Lean.readModuleDataParts. Declarations were matched by unique name. Compared declaration kinds, safety, universe parameters, every type and every body (including theorem proofs). The recursive type comparison allowed renaming binders only and required identical binder annotations.
+type theorem Formalism.MainNotions.S.LocalSplitGroups.BBtop.eq_1 alpha_equal=true first_difference=forall heq._@.Formalism.LocalToGlobal.SiegelLatticeTheory.CokernelGLCounts.RankPointCounts.LocModel.1467882204._hygCtx._hyg.87 Lean.BinderInfo.default | forall heq._@.Formalism.LocalToGlobal.SiegelLatticeTheory.CokernelGLCounts.RankPointCounts.LocModel.1993773031._hygCtx._hyg.251 Lean.BinderInfo.default
+declarations=179 kinds=[("theorem", 144), ("definition", 35)] bodies=179
+strict_type_differences=1 alpha_type_differences=0 strict_body_differences=0 alpha_body_differences=0
+Full-file lookup completed. Generated equation declaration present: False

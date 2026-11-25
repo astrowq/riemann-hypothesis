@@ -44,9 +44,12 @@ if [[ ! -f results/published-accepted ]]; then
 fi
 
 bash "$scripts/build-source.sh"
-timed "$checker" --jobs=24 --progress=5% --compare results/challenge.ndjson results/rebuilt.ndjson > results/rebuilt-compare.log 2>&1
+checked "$solution_hash" results/rebuilt.ndjson
+cmp --silent results/published.ndjson results/rebuilt.ndjson
+timed "$checker" --jobs=32 --progress=5% --compare results/challenge.ndjson results/rebuilt.ndjson > results/rebuilt-compare.log 2>&1
 grep -F 'theorem riemannHypothesis justified by the solution' results/rebuilt-compare.log
 (cd results && PATH="$judgebin:$PATH" timed "$judgebin/lake" comparator --config ../comparator.json \
     --challenge-from-export challenge.ndjson --solution-from-export rebuilt.ndjson) > results/comparator.log 2>&1
 checked "$solution_hash" results/rebuilt.ndjson
+checked bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9 results/challenge.ndjson
 touch results/rebuild-and-replay-complete

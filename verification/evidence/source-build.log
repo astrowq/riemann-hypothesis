@@ -1,0 +1,14 @@
+# Selected lines from the completed source build and manifest comparison.
+✔ [183887/183893] Built Development.AutomorphicArithmetic.AutomorphicVarieties.SmallClassNumbers.CorGKOf (47s)
+✔ [183888/183893] Built Development.AutomorphicArithmetic.CharacterBoxes.MainConclusion (56s)
+✔ [183889/183893] Built Supplements.Kernels.MainTheorems (61s)
+✔ [183890/183893] Built Supplements.Kernels.MainTheoremsCritical (62s)
+✔ [183891/183893] Built Supplements.Kernels.MainTheoremsAll (51s)
+✔ [183892/183893] Built Main (69s)
+Build completed successfully (183893 jobs).
+9146dfb4148e24d2252e04c50742f3e49dd126dfcc5006d10bf5f873ddf796ad  lean/.lake/build/lib/lean/Main.olean
+New source modules 28, direct failures 0, cumulative complete 175,187, still missing 0. Exact missing path set equals the downstream closure of the failed modules. Original failing roots now compiled 242/242.
+project-oleans: 175,186 of 175,187 matched by path; 1 differed
+sandbox-project-oleans: 175,187 of 175,187 matched by path; 0 differed
+Uncompressed snapshot SHA-256 51319e37e06fd80dc16cdbe3380e13967603cc36d529389f835ca48076c24859
+Compressed snapshot SHA-256 3226e9a87386ba9cad289a450d88b1ee6499d6105b2556ebb73d6a1362be7956
